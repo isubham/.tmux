@@ -231,10 +231,10 @@ tmux_conf_theme_window_status_last_bg="$tmux_conf_theme_colour_2"
 tmux_conf_theme_window_status_last_attr="none"
 
 # status left/right sections separators
-tmux_conf_theme_left_separator_main=""
-tmux_conf_theme_left_separator_sub="|"
-tmux_conf_theme_right_separator_main=""
-tmux_conf_theme_right_separator_sub="|"
+# tmux_conf_theme_left_separator_main=""
+# tmux_conf_theme_left_separator_sub="|"
+# tmux_conf_theme_right_separator_main=""
+# tmux_conf_theme_right_separator_sub="|"
 #tmux_conf_theme_left_separator_main='\uE0B0'  # /!\ you don't need to install Powerline
 #tmux_conf_theme_left_separator_sub='\uE0B1'   #   you only need fonts patched with
 #tmux_conf_theme_right_separator_main='\uE0B2' #   Powerline symbols or the standalone
@@ -267,8 +267,14 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
-tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
+
+# tmux_conf_theme_status_left=" > #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
+tmux_conf_theme_status_left=" > "
+
+
+# tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_vbar, #{battery_vbar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | "
+
+tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_vbar, #{battery_vbar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | "
 
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
@@ -311,8 +317,8 @@ tmux_conf_theme_synchronized_bg="none"
 tmux_conf_theme_synchronized_attr="none"
 
 # battery bar symbols
-tmux_conf_battery_bar_symbol_full="◼"
-tmux_conf_battery_bar_symbol_empty="◻"
+# tmux_conf_battery_bar_symbol_full="◼"
+# tmux_conf_battery_bar_symbol_empty="◻"
 #tmux_conf_battery_bar_symbol_full="♥"
 #tmux_conf_battery_bar_symbol_empty="·"
 
@@ -325,21 +331,21 @@ tmux_conf_battery_bar_length="auto"
 #   - gradient (default)
 #   - heat
 #   - "colour_full_fg,colour_empty_fg,colour_bg"
-tmux_conf_battery_bar_palette="gradient"
+tmux_conf_battery_bar_palette="heat"
 #tmux_conf_battery_bar_palette="#d70000,#e4e4e4,#000000"   # red, white, black
 
 # battery hbar palette, possible values are:
 #   - gradient (default)
 #   - heat
 #   - "colour_low,colour_half,colour_full"
-tmux_conf_battery_hbar_palette="gradient"
+tmux_conf_battery_hbar_palette="heat"
 #tmux_conf_battery_hbar_palette="#d70000,#ff5f00,#5fff00"  # red, orange, green
 
 # battery vbar palette, possible values are:
 #   - gradient (default)
 #   - heat
 #   - "colour_low,colour_half,colour_full"
-tmux_conf_battery_vbar_palette="gradient"
+tmux_conf_battery_vbar_palette="heat"
 #tmux_conf_battery_vbar_palette="#d70000,#ff5f00,#5fff00"  # red, orange, green
 
 # symbols used to indicate whether battery is charging or discharging
@@ -390,7 +396,7 @@ tmux_conf_copy_to_os_clipboard=false
 # bind c new-window -c '#{pane_current_path}' #!important
 
 # move status line to top
-#set -g status-position top
+set -g status-position bottom
 
 
 # -- tpm -----------------------------------------------------------------------
